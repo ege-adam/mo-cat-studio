@@ -1,0 +1,186 @@
+:root {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* Candy Color Palette */
+  --candy-pink: #FF6B9D;
+  --candy-purple: #C96EF5;
+  --candy-blue: #6EC3F5;
+  --candy-cyan: #5EEEFF;
+  --candy-mint: #6EFFC6;
+  --candy-yellow: #FFE66D;
+  --candy-orange: #FFAA6D;
+  --candy-coral: #FF8B7B;
+
+  /* Backgrounds */
+  --bg-dark: #0F0F1E;
+  --bg-panel: rgba(20, 20, 40, 0.7);
+  --bg-glass: rgba(255, 255, 255, 0.05);
+  --border-glass: rgba(255, 255, 255, 0.1);
+
+  /* Text */
+  --text-primary: #FFFFFF;
+  --text-secondary: #B8B8D1;
+  --text-dim: #7A7A9A;
+
+  color-scheme: dark;
+  color: var(--text-primary);
+  background: linear-gradient(135deg, #0F0F1E 0%, #1A1A3E 100%);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(135deg,
+    #0F0F1E 0%,
+    #1A1A3E 25%,
+    #1E1E3F 50%,
+    #1A1A3E 75%,
+    #0F0F1E 100%
+  );
+  background-size: 400% 400%;
+  animation: gradientShift 20s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: 2em;
+  line-height: 1.1;
+  background: linear-gradient(135deg, var(--candy-pink), var(--candy-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+h2 {
+  font-size: 1.5em;
+  background: linear-gradient(135deg, var(--candy-cyan), var(--candy-mint));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+h3 {
+  font-size: 1.1em;
+  color: var(--text-secondary);
+}
+
+button {
+  border-radius: 12px;
+  border: 1px solid var(--border-glass);
+  padding: 0.75em 1.5em;
+  font-size: 0.95em;
+  font-weight: 500;
+  font-family: inherit;
+  background: linear-gradient(135deg, var(--candy-purple), var(--candy-pink));
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(201, 110, 245, 0.3);
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, var(--candy-pink), var(--candy-coral));
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+button:hover::before {
+  opacity: 1;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(201, 110, 245, 0.5);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+button:disabled {
+  background: rgba(255, 255, 255, 0.1);
+  cursor: not-allowed;
+  box-shadow: none;
+  opacity: 0.5;
+}
+
+button:disabled:hover {
+  transform: none;
+}
+
+button > * {
+  position: relative;
+  z-index: 1;
+}
+
+input[type="file"] {
+  padding: 0.75em;
+  border-radius: 12px;
+  border: 2px dashed var(--border-glass);
+  background: var(--bg-glass);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+input[type="file"]:hover {
+  border-color: var(--candy-cyan);
+  background: rgba(110, 195, 245, 0.1);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, var(--candy-purple), var(--candy-pink));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, var(--candy-pink), var(--candy-coral));
+}
+
+/* Selection */
+::selection {
+  background: var(--candy-purple);
+  color: white;
+}

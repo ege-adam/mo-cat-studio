@@ -1,0 +1,96 @@
+[project]
+name = "mocap-studio-backend"
+version = "0.1.0"
+description = "Motion capture backend using SAM 3D Body"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "torch>=2.8.0,<2.9",
+    "torchvision>=0.21.0",
+    "detectron2==0.6+18f6958pt2.8.0cu128",
+    "pytorch-lightning",
+    "pyrender",
+    "opencv-python",
+    "yacs",
+    "scikit-image",
+    "einops",
+    "timm",
+    "dill",
+    "pandas",
+    "rich",
+    "hydra-core",
+    "hydra-submitit-launcher",
+    "hydra-colorlog",
+    "pyrootutils",
+    "webdataset",
+    "chump",
+    "networkx==3.2.1",
+    "roma",
+    "joblib",
+    "seaborn",
+    "wandb",
+    "appdirs",
+    "appnope",
+    "ffmpeg-python",
+    "cython",
+    "jsonlines",
+    "pytest",
+    "xtcocotools",
+    "loguru",
+    "optree",
+    "fvcore",
+    "black",
+    "pycocotools",
+    "tensorboard",
+    "huggingface-hub",
+    "pymomentum-gpu>=0.1.91",
+    "mhr>=1.0.0",
+    "moge",
+    "uvicorn",
+    "fastapi",
+    "filterpy>=1.4.5",
+    "python-multipart>=0.0.20",
+    "websockets>=15.0.1",
+    "flash-attn @ https://github.com/Dao-AILab/flash-attention/releases/download/v2.8.3/flash_attn-2.8.3+cu12torch2.8cxx11abiTRUE-cp312-cp312-linux_x86_64.whl",
+    "insightface>=0.7.3",
+    "onnxruntime-gpu>=1.18.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "pytest",
+    "ipython",
+]
+
+[project.scripts]
+setup-mhr-assets = "scripts.setup_mhr_assets:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = []
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.uv]
+extra-build-dependencies = { xtcocotools = ["numpy"], flash-attn = ["torch"] }
+
+[tool.uv.sources]
+moge = { git = "https://github.com/microsoft/MoGe.git" }
+torch = { index = "pytorch-cu128" }
+torchvision = { index = "pytorch-cu128" }
+detectron2 = { index = "torch-packages-builder" }
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
+
+[[tool.uv.index]]
+name = "torch-packages-builder"
+url = "https://miropsota.github.io/torch_packages_builder"
+explicit = true
