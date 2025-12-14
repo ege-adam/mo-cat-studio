@@ -128,11 +128,11 @@ This project includes code from [SAM 3D Body](https://github.com/facebookresearc
 
 ### SAM 3D Body Citation
 ```bibtex
-@article{ponttuset2024sam3d,
-  title={SAM 3D Body: Segment Any 3D Human},
-  author={Pont-Tuset, Jordi and Zheng, Higgins and others},
-  journal={arXiv preprint},
-  year={2024}
+@article{yang2025sam3dbody,
+  title={SAM 3D Body: Robust Full-Body Human Mesh Recovery},
+  author={Yang, Xitong and Kukreja, Devansh and Pinkus, Don and Sagar, Anushka and Fan, Taosha and Park, Jinhyung and Shin, Soyong and Cao, Jinkun and Liu, Jiawei and Ugrinovic, Nicolas and Feiszli, Matt and Malik, Jitendra and Dollar, Piotr and Kitani, Kris},
+  journal={arXiv preprint; identifier to be added},
+  year={2025}
 }
 ```
 
